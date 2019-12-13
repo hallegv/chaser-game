@@ -9,22 +9,28 @@ let water;
 let powerUp;
 
 function preload() {
-  water = loadImage(
-    "https://raw.githubusercontent.com/hallegv/chaser-game/master/underwater.jpg"
-  );
-  fishie = loadImage(
-    "https://raw.githubusercontent.com/hallegv/chaser-game/master/fishie.png"
-  );
-  shark = loadImage(
-    "https://raw.githubusercontent.com/hallegv/chaser-game/master/sharkie.png"
-  );
-  mermaidImage = loadImage(
-    "https://raw.githubusercontent.com/hallegv/chaser-game/master/mermaid.png"
-  );
-  plankton = loadImage(
-    "https://raw.githubusercontent.com/hallegv/chaser-game/master/plankton.png"
-  );
+  water = loadImage(
+    "https://raw.githubusercontent.com/hallegv/chaser-game/master/underwater.jpg"
+  );
+  //SOURCE: https://unsplash.com/s/photos/underwater
+  fishie = loadImage(
+    "https://raw.githubusercontent.com/hallegv/chaser-game/master/fishie.png"
+  );
+  //SOURCE: https://easydrawingguides.com/how-to-draw-a-cartoon-fish/
+  shark = loadImage(
+    "https://raw.githubusercontent.com/hallegv/chaser-game/master/sharkie.png"
+  );
+  //SOURCE: https://www.uihere.com/free-cliparts/bruce-great-white-shark-drawing-youtube-clip-art-shark-1494347
+  mermaidImage = loadImage(
+    "https://raw.githubusercontent.com/hallegv/chaser-game/master/mermaid.png"
+  );
+  //SOURCE: https://www.pngfly.com/png-23wxtl/
+  plankton = loadImage(
+    "https://raw.githubusercontent.com/hallegv/chaser-game/master/plankton.png"
+  );
+  //SOURCE: https://nickelodeon.fandom.com/wiki/Sheldon_J._Plankton
 }
+
 
 class Sprite {
   constructor(x, y, color, diameter) {
