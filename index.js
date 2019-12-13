@@ -1,6 +1,6 @@
 const progressBar = document.querySelector("progress");
-const time = document.querySelector("#score");
-let gameOver = document.querySelector("#gameOver");
+const score = document.querySelector("#score");
+const gameOver = document.querySelector("#gameOver");
 
 let shark;
 let fishie;
@@ -187,7 +187,7 @@ function setup() {
 
 function draw() {
   background(water);
-  time.textContent = Math.floor(millis() / 1000);
+  score.textContent = Math.floor(millis() / 1000);
   player.render();
   player.move({ x: mouseX, y: mouseY });
   if (scarecrow) {
