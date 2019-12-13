@@ -1,0 +1,52 @@
+body {
+  background-image: linear-gradient(90deg, cyan, lightblue, linen, lightblue, cyan);
+}
+
+h1 {
+  font-family: Luminari, fantasy;
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+progress {
+  width: 700px;
+}
+
+h2 {
+  text-align: center;
+  font-family: avenir;
+  font-size: 25px;
+  font-weight: normal;
+  padding: 1px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-family: cursive;
+  font-size: 33px;
+  color: #4b0082;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+canvas {
+  border: 7px dashed blue;
+}
+
+body {
+  text-align: center;
+}
+
+#gameOver {
+  font-family: Luminari, fantasy;
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10px;
+  text-align: center;
+}
