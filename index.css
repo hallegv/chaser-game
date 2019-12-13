@@ -43,6 +43,7 @@ body {
 }
 
 #gameOver {
+  color: red;
   font-family: Luminari, fantasy;
   font-size: 40px;
   margin-top: 0;
