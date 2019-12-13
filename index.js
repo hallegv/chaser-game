@@ -6,8 +6,7 @@ let shark;
 let fishie;
 let mermaid;
 let water;
-let scarecrow;
-let food;
+let powerUp;
 
 function preload() {
   water = loadImage(
@@ -19,14 +18,11 @@ function preload() {
   shark = loadImage(
     "https://raw.githubusercontent.com/hallegv/chaser-game/master/sharkie.png"
   );
-  mermaid = loadImage(
+  mermaidImage = loadImage(
     "https://raw.githubusercontent.com/hallegv/chaser-game/master/mermaid.png"
   );
   plankton = loadImage(
     "https://raw.githubusercontent.com/hallegv/chaser-game/master/plankton.png"
-  );
-  trash = loadImage(
-    "https://raw.githubusercontent.com/hallegv/chaser-game/master/cartoon-trash-008.png"
   );
 }
 
@@ -75,17 +71,17 @@ class Enemy extends Sprite {
   }
 }
 
-class Scarecrow extends Sprite {
+class Mermaid extends Sprite {
   constructor(x, y, spawned) {
     super(x, y, millis());
     this.spawned = spawned;
   }
   render() {
-    image(mermaid, this.x, this.y);
+    image(mermaidImage, this.x, this.y);
   }
 }
 
-class Food extends Sprite {
+class PowerUp extends Sprite {
   constructor(x, y, color, diameter, spawned) {
     super(x, y, "white", 20, millis());
     this.spawned = spawned;
@@ -145,8 +141,8 @@ function checkForDamage(enemy, player) {
   }
 }
 
-function checkForHealth(food, player) {
-  if (collided(player, food)) {
+function checkForHealth(powerUp, player) {
+  if (collided(player, powerUp)) {
     player.addHealth();
   }
 }
@@ -190,32 +186,32 @@ function draw() {
   score.textContent = Math.floor(millis() / 1000);
   player.render();
   player.move({ x: mouseX, y: mouseY });
-  if (scarecrow) {
-    scarecrow.render();
-    scarecrow.ttl--;
-    if (scarecrow.ttl <= 0) {
-      scarecrow = undefined;
+  if (mermaid) {
+    mermaid.render();
+    mermaid.ttl--;
+    if (mermaid.ttl <= 0) {
+      mermaid = undefined;
     }
-    if (millis() - scarecrow.spawned >= 5000) {
-      scarecrow = undefined;
+    if (millis() - mermaid.spawned >= 5000) {
+      mermaid = undefined;
     }
   }
-  if (food) {
-    food.render();
-    food.ttl--;
-    if (food.ttl <= 0) {
-      food = undefined;
+  if (powerUp) {
+    powerUp.render();
+    powerUp.ttl--;
+    if (powerUp.ttl <= 0) {
+      powerUp = undefined;
     }
-    checkForHealth(food, player);
-    if (millis() - food.spawned >= 5000) {
-      food = undefined;
+    checkForHealth(powerUp, player);
+    if (millis() - powerUp.spawned >= 5000) {
+      powerUp = undefined;
     }
   }
 
   enemies.forEach(enemy => {
     enemy.render();
     checkForDamage(enemy, player);
-    enemy.move(scarecrow || player);
+    enemy.move(mermaid || player);
   });
   adjustSprites();
   if (progressBar.value === 0) {
@@ -225,14 +221,14 @@ function draw() {
 }
 
 function mouseClicked() {
-  if (!scarecrow) {
-    scarecrow = new Scarecrow(player.x, player.y, millis());
+  if (!mermaid) {
+    mermaid = new Mermaid(player.x, player.y, millis());
   }
   if (enemies.length < 40) {
     fiveNewSharks();
   }
-  if (!food) {
-    food = new Food(...randomPointOnCanvas(), "white", 20, millis());
+  if (!powerUp) {
+    powerUp = new PowerUp(...randomPointOnCanvas(), "white", 20, millis());
   }
 }
 
